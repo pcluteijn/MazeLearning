@@ -17,11 +17,15 @@ The runme_animated_learning_progression.m MATLAB script fille can be run to get 
 
 ## Getting Started
 
-All code has been written using Mathworks [MATLAB](https://www.mathworks.com/programs/trials/trial_request.html?ref=ggl&s_eid=ppc_5852767522&q=%2Bmathworks%20%2Bmatlab). Make sure to have all code stored in a single arbitrary directory, there are no dependencies other than the provided script files. 
+Make sure to have all code stored in a single arbitrary directory, there are no dependencies other than the provided script files. 
 
 ```
 excute runme.m
 ```
+
+## Built and Run With
+
+* [MATLAB](https://www.mathworks.com/programs/trials/trial_request.html?ref=ggl&s_eid=ppc_5852767522&q=%2Bmathworks%20%2Bmatlab) -  Multi-paradigm numerical computing environment and fourth-generation programming language.
 
 ## License
 
