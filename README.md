@@ -20,7 +20,7 @@ The [runme_animated_learning_progression.m](runme_animated_learning_progression.
 
 ## Getting Started
 
-Make sure to have all code stored in a single arbitrary directory, there are no dependencies other than the provided script files and have a 'save' directory available for storing learned results.
+Make sure to have all code stored in a single arbitrary directory, there are no dependencies other than the provided script files. Be sure to create a '..\save' directory for storing learned results.
 
 ```
 excute runme.m
