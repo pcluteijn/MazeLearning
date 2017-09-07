@@ -27,6 +27,10 @@ excute runme.m
 
 * [MATLAB](https://www.mathworks.com/programs/trials/trial_request.html?ref=ggl&s_eid=ppc_5852767522&q=%2Bmathworks%20%2Bmatlab) -  Multi-paradigm numerical computing environment and fourth-generation programming language.
 
+## Author
+
+* **Peter C. Luteijn** - *All written code* - [pcluteijn](https://github.com/pcluteijn)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
