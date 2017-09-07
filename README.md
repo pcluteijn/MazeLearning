@@ -32,7 +32,7 @@ excute runme.m
 
 ## Author
 
-* **Peter C. Luteijn** - *All written code* - [pcluteijn](https://github.com/pcluteijn)
+* **Peter C. Luteijn** - *All code written* - [pcluteijn](https://github.com/pcluteijn)
 
 ## License
 
