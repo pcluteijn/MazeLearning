@@ -1,5 +1,8 @@
 # MazeLearning
+
 Reinforcement Learning algorithm (Q-Learing) that solves simple mazes with teleportation locations.
+
+![Alt text](promo.png "Example of learning result")
 
 ## About
 
