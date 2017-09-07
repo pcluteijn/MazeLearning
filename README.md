@@ -15,6 +15,14 @@ The second step is to create the actual agent itself that is able to learn this 
 
 The runme_animated_learning_progression.m MATLAB script fille can be run to get a quick impression of the final result showing an animated progression towards the optimal policy. Running this script displays the agent learning a 14-by-14 maze per episode up to the final solution by making use of four teleportation-location pairs.
 
+## Getting Started
+
+All code has been written using Mathworks [MATLAB](https://www.mathworks.com/programs/trials/trial_request.html?ref=ggl&s_eid=ppc_5852767522&q=%2Bmathworks%20%2Bmatlab). Make sure to have all code stored in a single arbitrary directory, there are no dependencies other than the provided script files. 
+
+```
+excute runme.m
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
