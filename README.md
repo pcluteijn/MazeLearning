@@ -1,6 +1,8 @@
 # MazeLearning
 Reinforcement Learning algorithm (Q-Learing) that solves simple mazes with teleportation locations.
 
+## About
+
 The MazeLearning algorithm focuses on a computational approach to learning from interaction with the maze environment. The goal is to learn what to do through taking actions and receiving rewards. This process is called reinforcement learning.
 
 The agent interacts with the environment and it provides a reward relative to the state the agent finds itself in. Thus within Reinforcement Learning (RL) an attempt is made to create an agent that is able to read the environment and assess the obtained rewards with the intend to always seek it's maximum. 
@@ -12,3 +14,7 @@ To setup a proper learning algorithm, the first thing that must be done is the c
 The second step is to create the actual agent itself that is able to learn this environment and find it's way to the finish by making use of these teleportation-location pairs along the way. First through exploration and finally by use of the learned optimal policy by exploitation.
 
 The runme_animated_learning_progression.m MATLAB script fille can be run to get a quick impression of the final result showing an animated progression towards the optimal policy. Running this script displays the agent learning a 14-by-14 maze per episode up to the final solution by making use of four teleportation-location pairs.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
