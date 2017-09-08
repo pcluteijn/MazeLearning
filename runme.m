@@ -11,8 +11,8 @@ clear; close all; clc;
 
 %% Maze Parameters
 % =========================================================================
-nr = 40;
-nc = 40;
+nr = 50;
+nc = 50;
 seed  = randi(2^32);
 nWall = 4*max([nr,nc]);
 
@@ -20,7 +20,7 @@ nWall = 4*max([nr,nc]);
 % =========================================================================
 % RL parameters
 gamma   = 0.99;         % Discount parameter
-alpha   = 1/2;          % Learningrate parameter
+alpha   = 1/6;          % Learningrate parameter
 epsilon = 0.30;         % e-greedy search behaviour
 lambda  = 0.98;         % Rate of decaying greedyness
 tlp     = 8;            % Teleport location pairs
@@ -47,7 +47,7 @@ save(strFile)
 %% POST DATA PROCESSING
 % =========================================================================
 % Set maze-cell width
-mcw = 20; close all;
+mcw = 18; close all;
 
 % Plot : Convergence
 pltConvergence(T,nr,nc,seed,nWall,gamma,alpha,epsilon,lambda,tlp);

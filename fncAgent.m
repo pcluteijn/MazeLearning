@@ -58,7 +58,10 @@ function [Q,T,M,HA,HQ] = ...
     initEpsilon = epsilon;
     
     % Learning boolean, needs to be 1 else no learning
-    doLearn = 1;                
+    doLearn = 1;         
+    
+    % Force Agent to converge to the least amount of found steps
+    doMinimum = 0;
     
     % Define Start/Finish Locations
     % ---------------------------------------------------------------------
@@ -107,7 +110,8 @@ function [Q,T,M,HA,HQ] = ...
     % START LEARNING : Q-LEARNING
     % =====================================================================
     % Initialize timer, episode variable & iteration difference
-    tic; episode = 0; dT(1) = 0; cntMaxItt = 0; justTeleported = 0;
+    tic; episode = 0; dT(1) = 0; 
+    cntMaxItt = 0; justTeleported = 0; dEpsilon = 0;
     
     % Start learning
     while doLearn
@@ -241,6 +245,9 @@ function [Q,T,M,HA,HQ] = ...
         % -----------------------------------------------------------------
         % Iterations per episode
         T(episode) = itt;
+        
+        % Minimum amount of itterations
+        minT = min(T);
 
         % Q-Matrix progression
         HQ(:,:,episode) = Q;
@@ -257,7 +264,18 @@ function [Q,T,M,HA,HQ] = ...
             dT(episode) = abs( T(episode-1) - itt );
             if episode > repeats &&  ...
                     sum(dT(episode-repeats:end)) < repeats
-                doLearn = 0;
+                % Ensure minimum amount of steps
+                if doMinimum == 1 && itt == minT
+                    dEpsilon = 0;
+                    doLearn  = 0;
+                elseif doMinimum == 1
+                    dEpsilon = dEpsilon + 1;
+                    epsilon = initEpsilon*dEpsilon;
+                    if epsilon >= 5; epsilon = 5; end
+                    strMsg = '< EXPLORING >';
+                else
+                    doLearn = 0;
+                end
             end
             
         end
@@ -272,9 +290,9 @@ function [Q,T,M,HA,HQ] = ...
         % -----------------------------------------------------------------
         % Output episode update to console
         if doReport
-            fprintf(['[ #%05i ] epsilon = %3.2f | ' ...
-                'iteration = %6i | time = %6.1f [s]  %s\n'], ...
-                episode, epsilon, itt-cnt, t_itt, strMsg)
+            fprintf(['[ #%04i ] eps = %3.2f | ' ...
+                'steps = %5i | minSteps = %5i | t = %5.1f [s]  %s\n'], ...
+                episode, epsilon, itt-cnt, minT-cnt, t_itt, strMsg)
         end
         
     end
