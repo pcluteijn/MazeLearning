@@ -14,17 +14,17 @@ clear; close all; clc;
 nr = 30;
 nc = 30;
 seed  = randi(2^32);
-nWall = 4*max([nr,nc]);
+nWall = 2*max([nr,nc]);
 
 %% Agent Parameters
 % =========================================================================
 % RL parameters
 gamma   = 0.99;         % Discount parameter
-alpha   = 1/8;          % Learningrate parameter
-epsilon = 0.10;         % e-greedy search behaviour
+alpha   = 1/10;         % Learningrate parameter
+epsilon = 0.50;         % e-greedy search behaviour
 lambda  = 0.98;         % Rate of decaying greedyness
-tlp     = 6;            % Teleport location pairs
-maxIt   = nr*nr;        % Maximum amount of allowed iteration steps
+tlp     = 8;            % Teleport location pairs
+maxIt   = nr*nc;        % Maximum amount of allowed iteration steps
 maxEp   = 20000;        % Maximum amount of allowed eposodes
 
 %% RUN ALGORITM
