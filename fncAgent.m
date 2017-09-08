@@ -37,7 +37,7 @@ function [Q,T,M,HA,HQ] = ...
     [nr,nc,~] = size(M);
     
     % Initiallize random number generator with known seed
-    if exist('seed') && seed > 0
+    if exist('seed') && and( seed > 0 , seed <= 2^32 )
         rng(seed);
     else
         rng;

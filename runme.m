@@ -11,8 +11,8 @@ clear; close all; clc;
 
 %% Maze Parameters
 % =========================================================================
-nr = 50;
-nc = 50;
+nr = 30;
+nc = 30;
 seed  = randi(2^32);
 nWall = 4*max([nr,nc]);
 
@@ -20,11 +20,11 @@ nWall = 4*max([nr,nc]);
 % =========================================================================
 % RL parameters
 gamma   = 0.99;         % Discount parameter
-alpha   = 1/6;          % Learningrate parameter
-epsilon = 0.30;         % e-greedy search behaviour
+alpha   = 1/8;          % Learningrate parameter
+epsilon = 0.10;         % e-greedy search behaviour
 lambda  = 0.98;         % Rate of decaying greedyness
-tlp     = 8;            % Teleport location pairs
-maxIt   = 4*nr*nr;      % Maximum amount of allowed iteration steps
+tlp     = 6;            % Teleport location pairs
+maxIt   = nr*nr;        % Maximum amount of allowed iteration steps
 maxEp   = 20000;        % Maximum amount of allowed eposodes
 
 %% RUN ALGORITM
