@@ -300,5 +300,18 @@ function [Q,T,M,HA,HQ] = ...
     % =====================================================================
     % STOP LEARNING
     % =====================================================================
-
+    
+    % Report optimality of the solution
+    % ---------------------------------------------------------------------    
+    % Output to console
+    if itt == minT
+        fprintf('\nMaze has an optimal solution!\n');
+    else
+        fprintf([...
+            '\nMaze has converged to a sub-optimal solution with ' ...
+            '%i steps\nwhile %i is the minimum amount, ' ...
+            'i.e. a %3.1f%% difference.\n'], ...
+            itt-cnt,minT-cnt,100*(itt-minT)/(minT-cnt));
+    end
+    
 end

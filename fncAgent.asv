@@ -61,7 +61,7 @@ function [Q,T,M,HA,HQ] = ...
     doLearn = 1;         
     
     % Force Agent to converge to the least amount of found steps
-    doMinimum = 1;
+    doMinimum = 0;
     
     % Define Start/Finish Locations
     % ---------------------------------------------------------------------
@@ -111,7 +111,7 @@ function [Q,T,M,HA,HQ] = ...
     % =====================================================================
     % Initialize timer, episode variable & iteration difference
     tic; episode = 0; dT(1) = 0; 
-    cntMaxItt = 0; justTeleported = 0; cntMinSteps = 0;
+    cntMaxItt = 0; justTeleported = 0; dEpsilon = 0;
     
     % Start learning
     while doLearn
@@ -266,12 +266,12 @@ function [Q,T,M,HA,HQ] = ...
                     sum(dT(episode-repeats:end)) < repeats
                 % Ensure minimum amount of steps
                 if doMinimum == 1 && itt == minT
-                    cntMinSteps = 0;
-                    doLearn = 0;
+                    dEpsilon = 0;
+                    doLearn  = 0;
                 elseif doMinimum == 1
-                    cntMinSteps = cntMinSteps + 1;
-                    epsilon = initEpsilon*cntMinSteps;
-                    if epsilon
+                    dEpsilon = dEpsilon + 1;
+                    epsilon = initEpsilon*dEpsilon;
+                    if epsilon >= 5; epsilon = 5; end
                     strMsg = '< EXPLORING >';
                 else
                     doLearn = 0;
@@ -300,5 +300,18 @@ function [Q,T,M,HA,HQ] = ...
     % =====================================================================
     % STOP LEARNING
     % =====================================================================
-
+    
+    % Report optimality of the solution
+    % ---------------------------------------------------------------------    
+    % Output to console
+    if itt == minT
+        fprintf('\nMaze has an optimal solution!\n');
+    else
+        fprintf([...
+            '\nMaze has converged to a sub-optimal solution with ' ...
+            '%i steps while %i was the minimum, ' ...
+            'i.e. a %3.1f%% difference.\n'], ...
+            itt-cnt,minT-cnt,100*(itt-minT)/(minT-cnt));
+    end
+    
 end
