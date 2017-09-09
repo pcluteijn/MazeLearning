@@ -24,7 +24,7 @@ alpha   = 1/10;         % Learningrate parameter
 epsilon = 0.9;          % e-greedy search behaviour
 lambda  = 0.98;         % Rate of decaying greedyness
 tlp     = 4;            % Teleport location pairs
-maxIt   = 4*nr*nr;      % Maximum amount of allowed iteration steps
+maxIt   = nr*nc;        % Maximum amount of allowed iteration steps
 maxEp   = 20000;        % Maximum amount of allowed eposodes
 
 %% RUN ALGORITM
@@ -35,7 +35,7 @@ M = fncEliminateWalls(M,nWall);     % Remove some walls
 fncCheckStructure(M);               % Check for corruptions
 
 % Start agent
-[Q,T,M,HA,HQ] = fncAgent(M,0,tlp,gamma,alpha,epsilon,lambda,maxIt,maxEp,1);
+[Q,M,HA,HQ] = fncAgent(M,0,tlp,gamma,alpha,epsilon,lambda,maxIt,maxEp,1);
 
 %% SAVE DATA
 % =========================================================================
@@ -50,7 +50,7 @@ save(strFile)
 mcw = 30; close all;
 
 % Plot : Convergence
-pltConvergence(T,nr,nc,seed,nWall,gamma,alpha,epsilon,lambda,tlp);
+pltConvergence(HA,nr,nc,seed,nWall,gamma,alpha,epsilon,lambda,tlp);
 
 % Plot : Action-Values
 pltActionValue(M,HQ,mcw,1);
