@@ -1,4 +1,4 @@
-function [Q,T,M,HA,HQ] = ...
+function [Q,M,HA,HQ] = ...
     fncAgent(M,seed,nTLP,gamma,alpha,epsilon,lambda,maxIt,maxEp,doReport)
 % RL Algorithm - Q-Learning
 % -------------------------------------------------------------------------
@@ -254,7 +254,9 @@ function [Q,T,M,HA,HQ] = ...
         
         % Agent behavior log
         HA(episode).logAgent = logAgent;
-        HA(episode).steps = itt - cnt;
+        HA(episode).steps    = itt - cnt;
+        HA(episode).minT     = minT;
+        HA(episode).T        = itt;
 
         % End episodes
         % -----------------------------------------------------------------
