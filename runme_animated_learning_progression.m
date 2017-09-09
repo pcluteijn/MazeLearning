@@ -20,8 +20,8 @@ nWall = 2*max([nr,nc]);
 % =========================================================================
 % RL parameters
 gamma   = 0.999;        % Discount parameter
-alpha   = 1/10;         % Learningrate parameter
-epsilon = 0.9;          % e-greedy search behaviour
+alpha   = 1/8;         % Learningrate parameter
+epsilon = 1.0;          % e-greedy search behaviour
 lambda  = 0.98;         % Rate of decaying greedyness
 tlp     = 4;            % Teleport location pairs
 maxIt   = nr*nc;        % Maximum amount of allowed iteration steps
