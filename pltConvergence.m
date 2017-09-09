@@ -1,4 +1,4 @@
-function pltConvergence(T,nr,nc,S,nW,gamma,alpha,epsilon,lambda,tlp,sFile)
+function pltConvergence(HA,nr,nc,S,nW,gamma,alpha,epsilon,lambda,tlp,sFile)
 % Convergence plot
 % -------------------------------------------------------------------------
 %   
@@ -14,6 +14,12 @@ function pltConvergence(T,nr,nc,S,nW,gamma,alpha,epsilon,lambda,tlp,sFile)
 %   Date    : July 2017
 %   Comment : Plots the convergence of the solution. 
 % -------------------------------------------------------------------------
+
+    % Itterations & minumum itteration per episode progression
+    for i = 1:length(HA)
+        T(i) = HA(i).T;
+        minT(i) = HA(i).minT;
+    end
 
     % Maximum iterations
     maxT = max(T);
@@ -33,7 +39,8 @@ function pltConvergence(T,nr,nc,S,nW,gamma,alpha,epsilon,lambda,tlp,sFile)
         strMaze,S,nW,gamma,alpha,epsilon,lambda,tlp,maxT);
     
     % Plot figure
-    figure('Name','Convergence'), plot(1:length(T),T), grid on
+    figure('Name','Convergence')
+    plot(1:length(T),T,1:length(minT),minT,'r--'), grid on
     xlabel('episodes [-]'), ylabel('iterations [-]')
     ylim([0,1.05*max(T)])
     
