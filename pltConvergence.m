@@ -3,16 +3,17 @@ function pltConvergence(HA,nr,nc,S,nW,gamma,alpha,epsilon,lambda,tlp,sFile)
 % -------------------------------------------------------------------------
 %   
 %   Function :
-%   pltConvergence(T)
+%   pltConvergence(HA)
 %   
 %   Inputs :
-%   T - Array containing the number of itteration per episode 
+%   HA - Agent action log 
 %   
 % -------------------------------------------------------------------------
 %   Author  : P.C. Luteijn
 %   email   : p.c.luteijn@gmail.com
 %   Date    : July 2017
-%   Comment : Plots the convergence of the solution. 
+%   Comment : Plots the agent convergence to the optimal policy in terms of
+%             number of episodes and iteration steps.
 % -------------------------------------------------------------------------
 
     % Itterations & minumum itteration per episode progression
