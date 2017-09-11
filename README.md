@@ -14,7 +14,7 @@ The agent is able to stochastically take actions and at some point follows an ev
 
 To setup a proper learning algorithm, the first thing that must be done is the creation of an environment that the agent is capable of reading and thus can navigate. A simple maze environment is therefor constructed as a multilayer cell array in MATLAB. To make things interesting, the maze is equipped with an predetermined amount of bidirectional teleportation pairs. Furthermore the possibility is added to remove a given set of randomly selected walls providing the agent with more navigation options. 
 
-The second step is to revolves around the actual agent itself, the entity that learns the maze, it is able to learn this environment and find it's way to the finish by making use of these teleportation-location pairs along the way. First through exploration and finally by use of the learned optimal policy by exploitation.
+The second step revolves around the actual agent itself and it is able to learn this environment by finding it's way to the finish by making use of these teleportation-location pairs along the way. First through exploration and finally using of the learned optimal policy by exploitation.
 
 The [runme_animated_learning_progression.m](runme_animated_learning_progression.m) MATLAB script fille can be run to get a quick impression of the final result showing an animated progression towards the optimal policy. Running this script displays the agent learning a 14-by-14 maze per episode up to the final solution by making use of four teleportation-location pairs.
 
