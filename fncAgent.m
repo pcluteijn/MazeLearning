@@ -46,13 +46,13 @@ function [Q,M,HA,HQ] = ...
     % Agent internal parameters
     % ---------------------------------------------------------------------
     % Breaks episode loop after a given number of repeating iteration steps
-    repeats = 60;  
+    repeats = 2*max([nr,nc]);  
 
     % Reward "Penalty" for moving/staying
     rewardMove  = -1;
     
     % Small added reward for reaching the finish
-    rewardFinish = 0.0;
+    rewardFinish = 0.1;
     
     % Initial e-greedy parameter
     initEpsilon = epsilon;
